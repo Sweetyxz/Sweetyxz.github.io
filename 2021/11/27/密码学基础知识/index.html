@@ -1,0 +1,56 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><meta name="author" content="Sweetyxz"><title>【基础知识】密码学基础知识 · Sweetyxz</title><meta name="description" content="1. 对称加密和非对称加密的区别
+对称加密使用同一密钥，非对称加密使用两个密钥，公钥和私钥
+对称加密一般耗时短，非对称加密耗时长
+对称加密存在密钥传输安全性问题，非对称公钥可公开2. DES一种用56位密钥来加密分组长度为64位数据的对称密钥算法（实际上函数要求一个64位的密钥作为输入，但是第8、1"><meta name="keywords" content="Blog"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="renderer" content="webkit"><link rel="shortcut icon" type="image/x-icon" href="/images/favicon.webp"><link rel="stylesheet" href="/css/style.css"><link rel="stylesheet" href="/css/blog_basic.css"><link rel="stylesheet" href="/css/font-awesome.min.css"><link rel="stylesheet" href="/css/insight.css"><link rel="stylesheet" href="/css/search.css"><link rel="alternate" type="application/atom+xml" title="ATOM 1.0" href="/atom.xml"><script src="/js/jquery.js"></script><meta name="generator" content="Hexo 6.0.0"></head><body><div class="page-top animated fadeInDown"><div class="nav"><li> <a href="/">首页</a></li><li> <a href="/archives">归档</a></li><li> <a href="/tags">标签</a></li></div><div class="information"><div class="nav_right_btn"><li><a class="fa fa-chevron-left" onclick="window.history.go(-1)"> </a></li><li><a class="fa fa-search" onclick="openWindow();"></a></li></div><div class="avatar"><img src="/images/logo.webp"></div></div></div><div class="sidebar animated fadeInDown"><div class="sidebar-top"><div class="logo-title"><div class="title"><img src="/images/logo@2x.webp" style="width:200px;" alt="favicon"><h3 title=""><a href="/">Sweetyxz</a></h3><div class="description"><p>少就是多 慢就是快</p></div></div><ul class="social-links"><li><a target="_blank" rel="noopener" href="https://github.com/Sweetyxz"><i class="fa fa-github"></i></a></li><li><a href="mailto:2364539601@qq.com"><i class="fa fa-envelope"></i></a></li></ul></div></div><div class="footer"><div class="p"> <span> 全站CC-BY-SA-3.0 </span><i class="fa fa-star"></i><span> Sweetyxz</span></div><div class="by_farbox"><span>Powered by </span><a href="https://hexo.io/zh-cn/" target="_blank">Hexo </a><span> & </span><span>Anatolo </span></div><div class="beian"></div></div></div><div class="main"><div class="autopagerize_page_element"><div class="content"><div class="post-page"><div class="post animated fadeInDown"><div class="post-title"><h3><a>【基础知识】密码学基础知识</a></h3></div><div class="post-content"><p><h1 id="1-对称加密和非对称加密的区别"><a href="#1-对称加密和非对称加密的区别" class="headerlink" title="1. 对称加密和非对称加密的区别"></a>1. 对称加密和非对称加密的区别</h1><ul>
+<li>对称加密使用同一密钥，非对称加密使用两个密钥，公钥和私钥</li>
+<li>对称加密一般耗时短，非对称加密耗时长</li>
+<li>对称加密存在密钥传输安全性问题，非对称公钥可公开<h1 id="2-DES"><a href="#2-DES" class="headerlink" title="2. DES"></a>2. DES</h1>一种用56位密钥来加密<strong>分组</strong>长度为64位数据<strong>的对称密钥算法</strong>（实际上函数要求一个64位的密钥作为输入，但是第8、16、24、32、40、48、56、64 等8位是校验位， 使得每个密钥都有奇数个 1，所以参与加密过程的只有56位）</li>
+<li>初始置换ip</li>
+</ul>
+<p>把64位数据乱序 然后分左右l和r 通过置换表置换出来</p>
+<ul>
+<li>乘积变换</li>
+</ul>
+<p>16轮 每轮需要48bit的子密钥 </p>
+<ol>
+<li>扩展运算 扩展到48位</li>
+<li>子密钥加密</li>
+<li>s盒压缩 变为32bit</li>
+<li>p盒置换</li>
+</ol>
+<ul>
+<li>初始逆置换</li>
+</ul>
+<p>是初始置换ip的逆置换</p>
+<p>解密过程16轮子密钥要把顺序反过来</p>
+<h2 id="分组模式"><a href="#分组模式" class="headerlink" title="分组模式"></a>分组模式</h2><p>ECB:每个明文组独立地以同一密钥加密</p>
+<p>CBC:加密算法的输入是当前明文组与前一密文组的异或</p>
+<p><img src="https://img-blog.csdnimg.cn/d8eef54c0b2a46d4a3c12d4e38ca2071.png#pic_center" alt="image"></p>
+<p>CFB：每次只处理输入的j比特，将上一次的密文用作加密算法的输入以产生伪随机输出，该输出再与当前明文异或以产生当前密文</p>
+<p><img src="https://img-blog.csdnimg.cn/20181103150620970.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80Mjk0MDgyNg==,size_16,color_FFFFFF,t_70" alt="image"></p>
+<p>OFB：与CFB类似，不同之处是本次加密算法的输入为前一次加密算法的输出<br><img src="https://img-blog.csdnimg.cn/20181103141242614.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80Mjk0MDgyNg==,size_16,color_FFFFFF,t_70" alt="image"></p>
+<table>
+<thead>
+<tr>
+<th>ECB</th>
+<th>CBC</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>简单；有利于并行计算；误差不会被传递；</td>
+<td>不容易主动攻击，安全性好于ECB</td>
+</tr>
+<tr>
+<td>明文重复信息会暴露</td>
+<td>需要初始化向量 不利于并行计算 误差传递</td>
+</tr>
+</tbody></table>
+<h1 id="3-AES"><a href="#3-AES" class="headerlink" title="3. AES"></a>3. AES</h1><p>AES的区块长度固定为128比特，密钥长度则可以是128，192或256比特；</p>
+<ul>
+<li>字节代换：状态矩阵跟s盒做字节代换</li>
+<li>行移位 状态矩阵行循环左移  0移0 1移1…</li>
+<li>列混淆 状态矩阵和常量矩阵相乘</li>
+<li>轮密钥加 与加密矩阵进行异或</li>
+</ul>
+<h1 id="数字签名的原理"><a href="#数字签名的原理" class="headerlink" title="数字签名的原理"></a>数字签名的原理</h1><p><img src="https://note.youdao.com/yws/api/personal/file/CFD7D64A16AF410E8CBEF09791C95875?method=download&shareKey=8cbbeadc3f0a812dadae34fdb990fb5e" alt="image"></p>
+</p><div class="tip">本文采用CC-BY-SA-3.0协议，转载请注明出处<br>Author: Sweetyxz</div></div><div class="post-footer"><div class="meta"><div class="info"><i class="fa fa-sun-o"></i><span class="date">2021-11-27</span><i class="fa fa-tag"></i><a class="tag" href="/tags/基础知识/" title="基础知识">基础知识 </a><span class="leancloud_visitors"></span><span>About 550 words, 1 min 50 sec  read</span></div></div></div></div><div class="share"><div class="evernote"><a class="fa fa-bookmark" href="" onclick="javascript:join_favorite()" ref="sidebar"></a></div><div class="weibo"><a class="fa fa-weibo" href="javascript:void((function(s,d,e){try{}catch(e){}var f='http://service.weibo.com/share/share.php?',u=d.location.href,p=['url=',e(u),'&amp;title=',e(d.title),'&amp;appkey=2924220432'].join('');function a(){if(!window.open([f,p].join(''),'mb',['toolbar=0,status=0,resizable=1,width=620,height=450,left=',(s.width-620)/2,',top=',(s.height-450)/2].join('')))u.href=[f,p].join('');};if(/Firefox/.test(navigator.userAgent)){setTimeout(a,0)}else{a()}})(screen,document,encodeURIComponent));"></a></div><div class="twitter"><a class="fa fa-twitter" target="_blank" rel="noopener" href="http://twitter.com/home?status=,http://example.com/2021/11/27/密码学基础知识/,Sweetyxz,【基础知识】密码学基础知识,;"></a></div></div><div class="pagination"><ul class="clearfix"><li class="pre pagbuttons"><a class="btn" role="navigation" href="/2021/12/12/%E9%A2%98%E7%9B%AE%E8%AE%B0%E5%BD%95/" title="【算法】Leetcode题目记录">Previous</a></li><li class="next pagbuttons"><a class="btn" role="navigation" href="/2021/10/05/sqlmap%E5%A4%8D%E4%B9%A0/" title="【Web安全】Sqlmap基础">Next</a></li></ul></div><script src="/js/visitors.js"></script></div></div></div></div><script src="/js/jquery-migrate-1.2.1.min.js"></script><script src="/js/jquery.appear.js"></script><script src="/js/add-bookmark.js"></script><script>(function(window){var INSIGHT_CONFIG={TRANSLATION:{POSTS:"Posts",PAGES:"Pages",CATEGORIES:"Categories",TAGS:"Tags",UNTITLED:"(Untitled)",},CONTENT_URL:"/content.json",};window.INSIGHT_CONFIG=INSIGHT_CONFIG})(window);</script><script src="/js/insight.js" defer></script><div class="searchbox ins-search"><div class="searchbox-container ins-search-container"><div class="searchbox-input-wrapper"><input class="searchbox-input ins-search-input" type="text" placeholder="Search..."><span class="searchbox-close"><a class="fa fa-times-circle" onclick="closeWindow();"></a></span></div><div class="searchbox-result-wrapper ins-section-wrapper"><div class="ins-section-container"><p>Seraching...</p></div></div></div></div></body></html>

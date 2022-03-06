@@ -1,0 +1,260 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><meta name="author" content="Sweetyxz"><title>【算法】Leetcode题目记录 · Sweetyxz</title><meta name="description" content="数组二分法注意区间的左右开闭 
+移除元素我的想法：遍历过程中找到目标数 跟最后一个互换，然后在找到跟倒数第二个互换，最后的个数就是总的减去互换的
+题解： 快慢指针 
+平方后排序：我的想法：找到正负分界点 分界点左和右向两边排序（太慢了）
+题解：双指针 最大的数必定在数组的头和尾 快慢指针可以放在头和"><meta name="keywords" content="Blog"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="renderer" content="webkit"><link rel="shortcut icon" type="image/x-icon" href="/images/favicon.webp"><link rel="stylesheet" href="/css/style.css"><link rel="stylesheet" href="/css/blog_basic.css"><link rel="stylesheet" href="/css/font-awesome.min.css"><link rel="stylesheet" href="/css/insight.css"><link rel="stylesheet" href="/css/search.css"><link rel="alternate" type="application/atom+xml" title="ATOM 1.0" href="/atom.xml"><script src="/js/jquery.js"></script><meta name="generator" content="Hexo 6.0.0"></head><body><div class="page-top animated fadeInDown"><div class="nav"><li> <a href="/">首页</a></li><li> <a href="/archives">归档</a></li><li> <a href="/tags">标签</a></li></div><div class="information"><div class="nav_right_btn"><li><a class="fa fa-chevron-left" onclick="window.history.go(-1)"> </a></li><li><a class="fa fa-search" onclick="openWindow();"></a></li></div><div class="avatar"><img src="/images/logo.webp"></div></div></div><div class="sidebar animated fadeInDown"><div class="sidebar-top"><div class="logo-title"><div class="title"><img src="/images/logo@2x.webp" style="width:200px;" alt="favicon"><h3 title=""><a href="/">Sweetyxz</a></h3><div class="description"><p>少就是多 慢就是快</p></div></div><ul class="social-links"><li><a target="_blank" rel="noopener" href="https://github.com/Sweetyxz"><i class="fa fa-github"></i></a></li><li><a href="mailto:2364539601@qq.com"><i class="fa fa-envelope"></i></a></li></ul></div></div><div class="footer"><div class="p"> <span> 全站CC-BY-SA-3.0 </span><i class="fa fa-star"></i><span> Sweetyxz</span></div><div class="by_farbox"><span>Powered by </span><a href="https://hexo.io/zh-cn/" target="_blank">Hexo </a><span> & </span><span>Anatolo </span></div><div class="beian"></div></div></div><div class="main"><div class="autopagerize_page_element"><div class="content"><div class="post-page"><div class="post animated fadeInDown"><div class="post-title"><h3><a>【算法】Leetcode题目记录</a></h3></div><div class="post-content"><p><h1 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h1><h2 id="二分法"><a href="#二分法" class="headerlink" title="二分法"></a>二分法</h2><p>注意区间的左右开闭 </p>
+<h2 id="移除元素"><a href="#移除元素" class="headerlink" title="移除元素"></a>移除元素</h2><p>我的想法：遍历过程中找到目标数 跟最后一个互换，然后在找到跟倒数第二个互换，最后的个数就是总的减去互换的</p>
+<p>题解： 快慢指针 </p>
+<h2 id="平方后排序："><a href="#平方后排序：" class="headerlink" title="平方后排序："></a>平方后排序：</h2><p>我的想法：找到正负分界点 分界点左和右向两边排序（太慢了）</p>
+<p>题解：双指针 最大的数必定在数组的头和尾 快慢指针可以放在头和尾 倒序插入新数组</p>
+<h2 id="长度最小的子数组"><a href="#长度最小的子数组" class="headerlink" title="长度最小的子数组"></a>长度最小的子数组</h2><p>我的想法 ：暴力解法</p>
+<p>题解：滑动窗口，重点是定义好窗口的边界如何变化。</p>
+<p>&#x3D;&#x3D;注&#x3D;&#x3D;：python生成无穷大的数</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">python3.5以上</span><br><span class="line"></span><br><span class="line">import math</span><br><span class="line">inf = math.inf</span><br><span class="line"></span><br><span class="line">python3.5以下</span><br><span class="line">inf = float(&#x27;inf&#x27;)</span><br></pre></td></tr></table></figure>
+<h2 id="螺旋矩阵II"><a href="#螺旋矩阵II" class="headerlink" title="螺旋矩阵II"></a>螺旋矩阵II</h2><p>而求解本题依然是要坚持循环不变量原则。</p>
+<p>模拟顺时针画矩阵的过程:</p>
+<p>填充上行从左到右<br>填充右列从上到下<br>填充下行从右到左<br>填充左列从下到上<br>由外向内一圈一圈这么画下去。</p>
+<p>可以发现这里的边界条件非常多，在一个循环中，如此多的边界条件，如果不按照固定规则来遍历，那就是一进循环深似海，从此offer是路人。</p>
+<p>这里一圈下来，我们要画每四条边，这四条边怎么画，每画一条边都要坚持一致的左闭右开，或者左开又闭的原则，这样这一圈才能按照统一的规则画下来。</p>
+<p>那么我按照左闭右开的原则，来画一圈，大家看一下：<br><img src="https://img-blog.csdnimg.cn/2020121623550681.png" alt="image"></p>
+<p>这里每一种颜色，代表一条边，我们遍历的长度，可以看出每一个拐角处的处理规则，拐角处让给新的一条边来继续画。</p>
+<p>这也是坚持了每条边左闭右开的原则。</p>
+<p>一些同学做这道题目之所以一直写不好，代码越写越乱。</p>
+<p>就是因为在画每一条边的时候，一会左开又闭，一会左闭右闭，一会又来左闭右开，岂能不乱。</p>
+<p>&#x3D;&#x3D;注:&#x3D;&#x3D; python初始化二维数组：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">matrix = [[0] * n for _ in range(0, m)]</span><br><span class="line"></span><br><span class="line">matrix -&gt; [[0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0]]</span><br></pre></td></tr></table></figure>
+
+<h1 id="链表"><a href="#链表" class="headerlink" title="链表"></a>链表</h1><h2 id="移除元素-1"><a href="#移除元素-1" class="headerlink" title="移除元素"></a>移除元素</h2><p>注意不要出现None.next的情况</p>
+<h2 id="构造链表"><a href="#构造链表" class="headerlink" title="构造链表"></a>构造链表</h2><ol>
+<li>注意使用虚拟头结点的话 不论添加还是删除操作都需要进行<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">self.head = dummy_node.next</span><br></pre></td></tr></table></figure></li>
+<li>此外 注意在头部和在尾部可以调用addatindex的逻辑</li>
+<li>记得加一个链表的节点数属性<h2 id="翻转链表"><a href="#翻转链表" class="headerlink" title="翻转链表"></a>翻转链表</h2></li>
+<li>双指针（迭代）<br><img src="https://tva1.sinaimg.cn/large/008eGmZEly1gnrf1oboupg30gy0c44qp.gif" alt="image"></li>
+<li>递归<br>思想和双指针一致， 就是写法不一样，逻辑相同（内嵌函数，return函数）<h2 id="两辆交换链表中的节点"><a href="#两辆交换链表中的节点" class="headerlink" title="两辆交换链表中的节点"></a>两辆交换链表中的节点</h2></li>
+<li>迭代<br>记录前后指针 迭代</li>
+<li>递归<br>从后往前（很牛）<h2 id="删除链表的倒数第N个"><a href="#删除链表的倒数第N个" class="headerlink" title="删除链表的倒数第N个"></a>删除链表的倒数第N个</h2>探针<h2 id="链表相交"><a href="#链表相交" class="headerlink" title="链表相交"></a>链表相交</h2>我的：我走过你走过的路</li>
+</ol>
+<p>题解：求出两个链表的长度，并求出两个链表长度的差值，然后让curA移动到，和curB 末尾对齐的位置，然后判断有无相等节点</p>
+<h2 id="环形链表II"><a href="#环形链表II" class="headerlink" title="环形链表II"></a>环形链表II</h2><p>首先判断有没有环，然后确定环的入口，有没有环可以通过快慢指针来判断，（slow一次走一个，fast一次走两个）判断环的入口通过数学计算可以得到在快慢指针相遇时，定一个点，然后在链表开头定一个点 他们俩相遇的点就是环的入口点。</p>
+<h1 id="哈希表"><a href="#哈希表" class="headerlink" title="哈希表"></a>哈希表</h1><h2 id="有效的字母异位词"><a href="#有效的字母异位词" class="headerlink" title="有效的字母异位词"></a>有效的字母异位词</h2><p>映射为hash表</p>
+<h2 id="两个数组的交集"><a href="#两个数组的交集" class="headerlink" title="两个数组的交集"></a>两个数组的交集</h2><p>一个很厉害的写法</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">list(set(nums1) &amp; set(nums2))</span><br></pre></td></tr></table></figure>
+<h2 id="快乐数"><a href="#快乐数" class="headerlink" title="快乐数"></a>快乐数</h2><p>注意题目中的会陷入<strong>无限循环</strong><br>所以需要加一个数组来记录出现的n，如果n重复出现了一定是陷入循环了，然后跳出</p>
+<p>&#x3D;&#x3D;注&#x3D;&#x3D;<br>python获取数字的每一位</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">temp = []</span><br><span class="line">while n:</span><br><span class="line">    temp.append(n % 10)</span><br><span class="line">    n = n // 10</span><br></pre></td></tr></table></figure>
+<h2 id="两数之和"><a href="#两数之和" class="headerlink" title="两数之和"></a>两数之和</h2><p><img src="https://code-thinking.cdn.bcebos.com/gifs/1.%E4%B8%A4%E6%95%B0%E4%B9%8B%E5%92%8C.gif" alt="image"></p>
+<h2 id="三数之和"><a href="#三数之和" class="headerlink" title="三数之和"></a>三数之和</h2><p>双指针法：<br><img src="https://code-thinking.cdn.bcebos.com/gifs/15.%E4%B8%89%E6%95%B0%E4%B9%8B%E5%92%8C.gif" alt="image"></p>
+<p>拿这个nums数组来举例，首先将数组排序，然后有一层for循环，i从下标0的地方开始，同时定一个下标left 定义在i+1的位置上，定义下标right 在数组结尾的位置上。</p>
+<p>依然还是在数组中找到 abc 使得a + b +c &#x3D;0，我们这里相当于 a &#x3D; nums[i] b &#x3D; nums[left] c &#x3D; nums[right]。</p>
+<p>接下来如何移动left 和right呢， 如果nums[i] + nums[left] + nums[right] &gt; 0 就说明 此时三数之和大了，因为数组是排序后了，所以right下标就应该向左移动，这样才能让三数之和小一些。</p>
+<p>如果 nums[i] + nums[left] + nums[right] &lt; 0 说明 此时 三数之和小了，left 就向右移动，才能让三数之和大一些，直到left与right相遇为止。</p>
+<p>时间复杂度：O(n^2)。</p>
+<h2 id="四数之和"><a href="#四数之和" class="headerlink" title="四数之和"></a>四数之和</h2><p>同样也是双指针的思路</p>
+<p>N数之和都是将时间复杂度o(n ** N)变为o(n ** (N-1))</p>
+<h2 id="赎金信"><a href="#赎金信" class="headerlink" title="赎金信"></a>赎金信</h2><p>我的想法：使用dict</p>
+<p>更好的想法：在本题的情况下，使用map的空间消耗要比数组大一些的，因为map要维护红黑树或者哈希表，而且还要做哈希函数，是费时的！数据量大的话就能体现出来差别了。 所以数组更加简单直接有效！</p>
+<p>建一个大小为26的数组，使用ASCII码来对应每个字母 进行+1操作等</p>
+<h2 id="四数相加-ii"><a href="#四数相加-ii" class="headerlink" title="四数相加 ii"></a>四数相加 ii</h2><ol>
+<li>遍历1 2 数组，定义dic， key记录1和2元素的和 value记录出现次数</li>
+<li>遍历 3 4 数组，判断 0-3-4是否在dic中，在的话result +&#x3D; dic[0-3-4]</li>
+</ol>
+<h1 id="字符串"><a href="#字符串" class="headerlink" title="字符串"></a>字符串</h1><h2 id="反转字符串"><a href="#反转字符串" class="headerlink" title="反转字符串"></a>反转字符串</h2><p>双指针</p>
+<h2 id="反转字符串ii"><a href="#反转字符串ii" class="headerlink" title="反转字符串ii"></a>反转字符串ii</h2><p>双指针</p>
+<h2 id="替换空格"><a href="#替换空格" class="headerlink" title="替换空格"></a>替换空格</h2><p>首先扩充数组到每个空格替换成”%20”之后的大小。</p>
+<p>然后从后向前替换空格，也就是双指针法，过程如下：</p>
+<p>i指向新长度的末尾，j指向旧长度的末尾。</p>
+<p><img src="https://tva1.sinaimg.cn/large/e6c9d24ely1go6qmevhgpg20du09m4qp.gif" alt="image"></p>
+<blockquote>
+<p><strong>其实很多数组填充类的问题，都可以先预先给数组扩容带填充后的大小，然后在从后向前进行操作</strong>。</p>
+<p><strong>这么做有两个好处：</strong></p>
+<p><strong>不用申请新数组。<br>从后向前填充元素，避免了从前先后填充元素要来的 每次添加元素都要将添加元素之后的所有元素向后移动</strong></p>
+</blockquote>
+<h2 id="翻转字符串里的单词"><a href="#翻转字符串里的单词" class="headerlink" title="翻转字符串里的单词"></a>翻转字符串里的单词</h2><p>解题思路如下：</p>
+<ul>
+<li>移除多余空格</li>
+<li>将整个字符串反转</li>
+<li>将每个单词反转</li>
+</ul>
+<p>移除多余空格包括移除头 尾 中间的 中间的通过双指针的方式移除</p>
+<h2 id="左旋转字符串"><a href="#左旋转字符串" class="headerlink" title="左旋转字符串"></a>左旋转字符串</h2><p>我的：申请了额外空间</p>
+<p>题解：</p>
+<ol>
+<li>可以使用切片时。使用切片</li>
+<li>不可以使用的话：<ul>
+<li>反转区间为前n的子串</li>
+<li>反转区间为n到末尾的子串</li>
+<li>反转整个字符串<br> <img src="https://code-thinking.cdn.bcebos.com/pics/%E5%89%91%E6%8C%87Offer58-II.%E5%B7%A6%E6%97%8B%E8%BD%AC%E5%AD%97%E7%AC%A6%E4%B8%B2.png" alt="image"></li>
+</ul>
+</li>
+</ol>
+<h2 id="实现strStr"><a href="#实现strStr" class="headerlink" title="实现strStr()"></a>实现strStr()</h2><p>我的： 逐个元素切片判断相当</p>
+<p>题解：KMP</p>
+<p>注意next数组的获取中的while以及匹配过程中是needle在移动 而不是文本</p>
+<p><img src="https://note.youdao.com/yws/api/personal/file/11F8FD319D7E46078AD63A840A7933E4?method=download&shareKey=a71eecc2fbec363f8942446447b8a3fa" alt="image"></p>
+<h2 id="重复的子字符串"><a href="#重复的子字符串" class="headerlink" title="重复的子字符串"></a>重复的子字符串</h2><p>简单的：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">if s[0:x] * (len(s) // x) == s:</span><br></pre></td></tr></table></figure>
+
+<p>题解：</p>
+<p><img src="https://code-thinking.cdn.bcebos.com/pics/459.%E9%87%8D%E5%A4%8D%E7%9A%84%E5%AD%90%E5%AD%97%E7%AC%A6%E4%B8%B2_1.png" alt="image"></p>
+<p>next[len - 1] &#x3D; 7，next[len - 1] + 1 &#x3D; 8，8就是此时字符串asdfasdfasdf的最长相同前后缀的长度。</p>
+<p>(len - (next[len - 1] + 1)) 也就是： 12(字符串的长度) - 8(最长公共前后缀的长度) &#x3D; 4， 4正好可以被 12(字符串的长度) 整除，所以说明有重复的子字符串（asdf）。</p>
+<h1 id="栈与队列"><a href="#栈与队列" class="headerlink" title="栈与队列"></a>栈与队列</h1><h2 id="用栈实现队列"><a href="#用栈实现队列" class="headerlink" title="用栈实现队列"></a>用栈实现队列</h2><p>使用栈来模式队列的行为，如果仅仅用一个栈，是一定不行的，所以需要两个栈一个输入栈，一个输出栈，这里要注意输入栈和输出栈的关系</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">执行语句：</span><br><span class="line">queue.push(1);</span><br><span class="line">queue.push(2);</span><br><span class="line">queue.pop(); 注意此时的输出栈的操作</span><br><span class="line">queue.push(3);</span><br><span class="line">queue.push(4);</span><br><span class="line">queue.pop();</span><br><span class="line">queue.pop();注意此时的输出栈的操作</span><br><span class="line">queue.pop();</span><br><span class="line">queue.empty();</span><br></pre></td></tr></table></figure>
+<p><img src="https://code-thinking.cdn.bcebos.com/gifs/232.%E7%94%A8%E6%A0%88%E5%AE%9E%E7%8E%B0%E9%98%9F%E5%88%97%E7%89%88%E6%9C%AC2.gif" alt="image"></p>
+<h2 id="用队列实现栈"><a href="#用队列实现栈" class="headerlink" title="用队列实现栈"></a>用队列实现栈</h2><p>一个双向队列模拟队列时只能使用popleft（）和append（）</p>
+<p><img src="https://assets.leetcode-cn.com/solution-static/225/225_fig2.gif" alt="image"></p>
+<h2 id="有效的括号"><a href="#有效的括号" class="headerlink" title="有效的括号"></a>有效的括号</h2><p>使用栈的思想</p>
+<h2 id="删除字符串中的所有相邻重复项"><a href="#删除字符串中的所有相邻重复项" class="headerlink" title="删除字符串中的所有相邻重复项"></a>删除字符串中的所有相邻重复项</h2><p>&#x3D;&#x3D;递归的实现就是：每一次递归调用都会把函数的局部变量、参数值和返回地址等压入调用栈中，然后递归返回的时候，从栈顶弹出上一次递归的各项参数，所以这就是递归为什么可以返回上一层位置的原因。&#x3D;&#x3D;</p>
+<p>使用栈 在不可以使用栈的情况下可以使用双指针</p>
+<p>双指针：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">while fast &lt; length:</span><br><span class="line">            # 如果一样直接换，不一样会把后面的填在slow的位置</span><br><span class="line">            res[slow] = res[fast]</span><br><span class="line">            </span><br><span class="line">            # 如果发现和前一个一样，就退一格指针</span><br><span class="line">            if slow &gt; 0 and res[slow] == res[slow - 1]:</span><br><span class="line">                slow -= 1</span><br><span class="line">            else:</span><br><span class="line">                slow += 1</span><br><span class="line">            fast += 1</span><br></pre></td></tr></table></figure>
+
+<h2 id="逆波兰表达式求值"><a href="#逆波兰表达式求值" class="headerlink" title="逆波兰表达式求值"></a>逆波兰表达式求值</h2><p>后缀表达式的形式</p>
+<p>使用栈</p>
+<p>注意python中取整是向下取整<br>-小数应该是向上取整 所以应该用math库中的ceil()函数</p>
+<h2 id="滑动窗口的最大值（单调队列）-没做"><a href="#滑动窗口的最大值（单调队列）-没做" class="headerlink" title="滑动窗口的最大值（单调队列） 没做"></a>滑动窗口的最大值（单调队列） 没做</h2><h2 id="前k个高频元素"><a href="#前k个高频元素" class="headerlink" title="前k个高频元素"></a>前k个高频元素</h2><h3 id="堆"><a href="#堆" class="headerlink" title="堆"></a>堆</h3><p>堆就是用数组实现的二叉树，所以它没有使用父指针或者子指针。堆根据“堆属性”来排序，“堆属性”决定了树中节点的位置。</p>
+<p>堆的常用方法：</p>
+<ul>
+<li>构建优先队列</li>
+<li>支持堆排序</li>
+<li>快速找出一个集合中的最小值（或者最大值）</li>
+</ul>
+<p>堆分为最大堆和最小堆。在最大堆中，父节点的值比每一个子节点的值都要大。在最小堆中，父节点的值比每一个子节点的值都要小。这就是所谓的“堆属性”，并且这个属性对堆中的每一个节点都成立。</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/4064751-14a6cde25bdff968.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/190/format/webp" alt="image"></p>
+<p>这是一个最大堆，我们准备将上面例子中的树这样存储</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[ 10, 7, 2, 5, 1 ]</span><br></pre></td></tr></table></figure>
+<p>除了一个简单的数组以外，不需要任何额外的空间。如果 i 是节点的索引，那么下面的公式就给出了它的父节点和子节点在数组中的位置</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">parent(i) = floor((i - 1)/2)</span><br><span class="line">left(i)   = 2i + 1</span><br><span class="line">right(i)  = 2i + 2</span><br></pre></td></tr></table></figure>
+<p>根节点(10)没有父节点，因为 -1 不是一个有效的数组索引。同样，节点 (2)，(5)和(1) 没有子节点，因为这些索引已经超过了数组的大小，所以我们在使用这些索引值的时候需要保证是有效的索引值。</p>
+<h3 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h3><p>我的：</p>
+<ol>
+<li>统计数目的频数形成字典</li>
+<li>对字典按照频数从大到小排序</li>
+<li>输出前k个key</li>
+</ol>
+<p>对字典使用value排序：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">dic = &#123;1: 3, 2: 2, 3: 1, 4: 1, 5: 1, 6: 2, 8: 2&#125;</span><br><span class="line">dic = sorted(dic.items(),key =lambda item: item[1], reverse = True)</span><br><span class="line">print(dic)</span><br><span class="line"># [(1, 3), (2, 2), (6, 2), (8, 2), (3, 1), (4, 1), (5, 1)]</span><br></pre></td></tr></table></figure>
+
+
+<p>题解：</p>
+<ol>
+<li>统计数目的频数形成字典</li>
+<li>用最小堆，最小堆长度为k，当小于k时push，大于k时pop</li>
+<li>输出最小堆</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">#用固定大小为k的小顶堆，扫面所有频率的数值</span><br><span class="line">for key, freq in map_.items():</span><br><span class="line">    heapq.heappush(pri_que, (freq, key))</span><br><span class="line">    if len(pri_que) &gt; k: #如果堆的大小大于了K，则队列弹出，保证堆的大小一直为k</span><br><span class="line">        heapq.heappop(pri_que)</span><br></pre></td></tr></table></figure>
+<h1 id="二叉树"><a href="#二叉树" class="headerlink" title="二叉树"></a>二叉树</h1><h2 id="基础"><a href="#基础" class="headerlink" title="基础"></a>基础</h2><h3 id="满二叉树"><a href="#满二叉树" class="headerlink" title="满二叉树"></a>满二叉树</h3><p>如果一棵二叉树只有度为0的结点和度为2的结点，并且度为0的结点在同一层上，则这棵二叉树为满二叉树。<br><img src="https://img-blog.csdnimg.cn/20200806185805576.png" alt="image"><br>深度为k 节点为2 ** k - 1</p>
+<h3 id="完全二叉树"><a href="#完全二叉树" class="headerlink" title="完全二叉树"></a>完全二叉树</h3><p>在完全二叉树中，除了最底层节点可能没填满外，其余每层节点数都达到最大值，<strong>并且最下面一层的节点都集中在该层最左边的若干位置</strong>。若最底层为第 h 层，则该层包含 1~ 2^h -1  个节点。</p>
+<h3 id="二叉搜索树"><a href="#二叉搜索树" class="headerlink" title="二叉搜索树"></a>二叉搜索树</h3><p>有数值 左小于根小于右<br><img src="https://img-blog.csdnimg.cn/20200806190304693.png" alt="image"></p>
+<h3 id="平衡二叉搜索树"><a href="#平衡二叉搜索树" class="headerlink" title="平衡二叉搜索树"></a>平衡二叉搜索树</h3><p>它是一棵空树或它的左右两个子树的高度差的绝对值不超过1，并且左右两个子树都是一棵平衡二叉树</p>
+<p><img src="https://img-blog.csdnimg.cn/20200806190511967.png" alt="image"></p>
+<h3 id="二叉树的存储方式"><a href="#二叉树的存储方式" class="headerlink" title="二叉树的存储方式"></a>二叉树的存储方式</h3><p>链式或者顺序，链式就是指针指向左右节点</p>
+<p>顺序存储：<br><img src="https://img-blog.csdnimg.cn/20200920200429452.png" alt="image"><br>如果父节点的数组下标是 i，那么它的左孩子就是 i * 2 + 1，右孩子就是 i * 2 + 2</p>
+<h3 id="二叉树的遍历方式"><a href="#二叉树的遍历方式" class="headerlink" title="二叉树的遍历方式"></a>二叉树的遍历方式</h3><p>深度优先：</p>
+<ul>
+<li>前序 （递归 迭代）</li>
+<li>中序 （递归 迭代）</li>
+<li>后序 （递归 迭代）</li>
+</ul>
+<p>广度优先：</p>
+<p>层序遍历 迭代</p>
+<p><img src="https://img-blog.csdnimg.cn/20200806191109896.png" alt="image"></p>
+<p>栈其实就是递归的一种是实现结构，也就说前中后序遍历的逻辑其实都是可以借助栈使用非递归的方式来实现的。</p>
+<p>广度优先遍历的实现一般使用队列来实现，这也是队列先进先出的特点所决定的，因为需要先进先出的结构，才能一层一层的来遍历二叉树。</p>
+<h2 id="二叉树的递归遍历"><a href="#二叉树的递归遍历" class="headerlink" title="二叉树的递归遍历"></a>二叉树的递归遍历</h2><h3 id="递归三部曲"><a href="#递归三部曲" class="headerlink" title="递归三部曲"></a>递归三部曲</h3><p>递归的实现就是：<strong>每一次递归调用都会把函数的局部变量、参数值和返回地址等压入调用栈中</strong>，然后递归返回的时候，从栈顶弹出上一次递归的各项参数，所以这就是递归为什么可以返回上一层位置的原因。</p>
+<ol>
+<li><p><strong>确定递归函数的参数和返回值</strong>： 确定哪些参数是递归的过程中需要处理的，那么就在递归函数里加上这个参数， 并且还要明确每次递归的返回值是什么进而确定递归函数的返回类型。</p>
+</li>
+<li><p><strong>确定终止条件</strong>： 写完了递归算法, 运行的时候，经常会遇到栈溢出的错误，就是没写终止条件或者终止条件写的不对，操作系统也是用一个栈的结构来保存每一层递归的信息，如果递归没有终止，操作系统的内存栈必然就会溢出。</p>
+</li>
+<li><p><strong>确定单层递归的逻辑</strong>： 确定每一层递归需要处理的信息。在这里也就会重复调用自己来实现递归的过程。</p>
+</li>
+</ol>
+<h2 id="二叉树的迭代遍历"><a href="#二叉树的迭代遍历" class="headerlink" title="二叉树的迭代遍历"></a>二叉树的迭代遍历</h2><p>栈的思想</p>
+<p>前序：<br>前序遍历是中左右，每次先处理的是中间节点，那么先将根节点放入栈中，然后将右孩子加入栈，再加入左孩子。</p>
+<p><img src="https://tva1.sinaimg.cn/large/008eGmZEly1gnbmss7603g30eq0d4b2a.gif" alt="image"></p>
+<p>中序：<br><img src="https://tva1.sinaimg.cn/large/008eGmZEly1gnbmuj244bg30eq0d4kjm.gif" alt="image"></p>
+<p>后序：<br><img src="https://img-blog.csdnimg.cn/20200808200338924.png" alt="image"></p>
+<h2 id="二叉树的统一迭代法"><a href="#二叉树的统一迭代法" class="headerlink" title="二叉树的统一迭代法"></a>二叉树的统一迭代法</h2><p>在要处理的节点放入栈之后，紧接着放入一个空指针作为标记。 </p>
+<h2 id="二叉树的层序遍历"><a href="#二叉树的层序遍历" class="headerlink" title="二叉树的层序遍历"></a>二叉树的层序遍历</h2><p>递归<br>迭代：用队列</p>
+<h2 id="二叉树的层序遍历II"><a href="#二叉树的层序遍历II" class="headerlink" title="二叉树的层序遍历II"></a>二叉树的层序遍历II</h2><p>用层序遍历后翻转结果列表</p>
+<h2 id="翻转二叉树"><a href="#翻转二叉树" class="headerlink" title="翻转二叉树"></a>翻转二叉树</h2><p>递归：带函数的<br>迭代：利用栈<br>层序：利用队列</p>
+<h2 id="对称二叉树"><a href="#对称二叉树" class="headerlink" title="对称二叉树"></a>对称二叉树</h2><p><strong>递归：</strong></p>
+<p>其实我们要比较的是两个树（这两个树是根节点的左右子树），所以在递归遍历的过程中，也是要同时遍历两棵树。</p>
+<p><img src="https://img-blog.csdnimg.cn/20210203144624414.png" alt="image"></p>
+<p>递归的函数传入的实际上是左右子树的对应节点</p>
+<p><strong>迭代</strong></p>
+<p>使用队列或栈都可以<br><img src="https://tva1.sinaimg.cn/large/008eGmZEly1gnwcimlj8lg30hm0bqnpd.gif" alt="image"></p>
+<h2 id="二叉树的最大深度-n叉数的最大深度"><a href="#二叉树的最大深度-n叉数的最大深度" class="headerlink" title="二叉树的最大深度 n叉数的最大深度"></a>二叉树的最大深度 n叉数的最大深度</h2><p>递归：前序遍历<br>层序遍历</p>
+<h2 id="二叉树的最小深度"><a href="#二叉树的最小深度" class="headerlink" title="二叉树的最小深度"></a>二叉树的最小深度</h2><p>递归：后序遍历<br>层序遍历</p>
+<h2 id="平衡二叉树"><a href="#平衡二叉树" class="headerlink" title="平衡二叉树"></a>平衡二叉树</h2><p>注意二叉树的高度的定义，</p>
+<p>深度可以使用前序遍历 </p>
+<p>高度使用后序遍历左右中<br>特殊例子：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">         1</span><br><span class="line">        2 3</span><br><span class="line">       4   6</span><br><span class="line">      5     7</span><br><span class="line">2的左子树高度2 右子树高度0</span><br></pre></td></tr></table></figure>
+
+
+<h1 id="回溯"><a href="#回溯" class="headerlink" title="回溯"></a>回溯</h1><p>回溯是递归的副产品，只要有递归就会有回溯。</p>
+<p>回溯三部曲：</p>
+<ul>
+<li>回溯函数模板返回值以及参数</li>
+</ul>
+<p>回溯算法中函数返回值一般为void。</p>
+<p>再来看一下参数，因为回溯算法需要的参数可不像二叉树递归的时候那么容易一次性确定下来，所以一般是先写逻辑，然后需要什么参数，就填什么参数。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">void backtracking(参数)</span><br></pre></td></tr></table></figure>
+<ul>
+<li>回溯函数终止条件</li>
+</ul>
+<p>什么时候达到了终止条件，树中就可以看出，一般来说搜到叶子节点了，也就找到了满足条件的一条答案，把这个答案存放起来，并结束本层递归。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">if (终止条件) &#123;</span><br><span class="line">    存放结果;</span><br><span class="line">    return;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>回溯搜索的遍历过程</li>
+</ul>
+<p>回溯法一般是在集合中递归搜索，集合的大小构成了树的宽度，递归的深度构成的树的深度。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">for (选择：本层集合中元素（树中节点孩子的数量就是集合的大小）) &#123;</span><br><span class="line">    处理节点;</span><br><span class="line">    backtracking(路径，选择列表); // 递归</span><br><span class="line">    回溯，撤销处理结果</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="组合"><a href="#组合" class="headerlink" title="组合"></a>组合</h2><p>回溯</p>
+<p>path这个数组的大小如果达到k，说明我们找到了一个子集大小为k的组合了</p>
+<p>剪枝操作</p>
+<p><img src="https://img-blog.csdnimg.cn/20210130194335207.png" alt="image"></p>
+<p>图中每一个节点（图中为矩形），就代表本层的一个for循环，那么每一层的for循环从第二个数开始遍历的话，都没有意义，都是无效遍历。</p>
+<p>所以，可以剪枝的地方就在递归中每一层的for循环所选择的起始位置。</p>
+<p>如果for循环选择的起始位置之后的元素个数 已经不足 我们需要的元素个数了，那么就没有必要搜索了。</p>
+<h2 id="分割回文串-and-复原ip地址"><a href="#分割回文串-and-复原ip地址" class="headerlink" title="分割回文串 and 复原ip地址"></a>分割回文串 and 复原ip地址</h2><p>回溯 分割约等于组合<br><img src="https://code-thinking.cdn.bcebos.com/pics/131.%E5%88%86%E5%89%B2%E5%9B%9E%E6%96%87%E4%B8%B2.jpg" alt="image"></p>
+<h1 id="贪心"><a href="#贪心" class="headerlink" title="贪心"></a>贪心</h1><h2 id="分发饼干"><a href="#分发饼干" class="headerlink" title="分发饼干"></a>分发饼干</h2><p>小饼干优先分给小胃口 排序</p>
+<h2 id="摆动序列-和最大子序列和（没做）"><a href="#摆动序列-和最大子序列和（没做）" class="headerlink" title="摆动序列 和最大子序列和（没做）"></a>摆动序列 和最大子序列和（没做）</h2><p>可用贪心和动态规划</p>
+<h2 id="买卖股票II"><a href="#买卖股票II" class="headerlink" title="买卖股票II"></a>买卖股票II</h2><p>贪心：</p>
+<p>假如第0天买入，第3天卖出，那么利润为：prices[3] - prices[0]。</p>
+<p>相当于(prices[3] - prices[2]) + (prices[2] - prices[1]) + (prices[1] - prices[0])。</p>
+<p>此时就是把利润分解为每天为单位的维度，而不是从0天到第3天整体去考虑！<br><img src="https://img-blog.csdnimg.cn/2020112917480858.png" alt="image"></p>
+<h2 id="跳跃游戏"><a href="#跳跃游戏" class="headerlink" title="跳跃游戏"></a>跳跃游戏</h2><p>类似动态改变窗口大小</p>
+<h2 id="跳跃游戏2"><a href="#跳跃游戏2" class="headerlink" title="跳跃游戏2"></a>跳跃游戏2</h2><p>这里需要统计两个覆盖范围，当前这一步的最大覆盖和下一步最大覆盖。</p>
+<p>如果移动下标达到了当前这一步的最大覆盖最远距离了，还没有到终点的话，那么就必须再走一步来增加覆盖范围，直到覆盖范围覆盖了终点。</p>
+<p><img src="https://img-blog.csdnimg.cn/20201201232309103.png" alt="image"></p>
+<p>图中覆盖范围的意义在于，只要红色的区域，最多两步一定可以到！（不用管具体怎么跳，反正一定可以跳到）</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">for i in range(len(nums)):</span><br><span class="line">           nextDistance = max(i + nums[i], nextDistance)</span><br><span class="line">           if i == curDistance: </span><br><span class="line">               if curDistance != len(nums) - 1:</span><br><span class="line">                   ans += 1</span><br><span class="line">                   curDistance = nextDistance</span><br><span class="line">                   if nextDistance &gt;= len(nums) - 1: break</span><br><span class="line">       return ans</span><br></pre></td></tr></table></figure>
+
+<h1 id="动态规划"><a href="#动态规划" class="headerlink" title="动态规划"></a>动态规划</h1><h2 id="斐波那契数"><a href="#斐波那契数" class="headerlink" title="斐波那契数"></a>斐波那契数</h2><p>动态规划入门题</p>
+<h2 id="爬楼梯"><a href="#爬楼梯" class="headerlink" title="爬楼梯"></a>爬楼梯</h2><p>dp[i]表示爬i阶楼梯的方法数目</p>
+<p>爬i阶相当于爬i-1阶再走一阶和爬i-2阶再走两阶</p>
+<p>所以dp[i] &#x3D; dp[i-1] + dp[i - 2]</p>
+<h2 id="用最小的花费爬楼梯"><a href="#用最小的花费爬楼梯" class="headerlink" title="用最小的花费爬楼梯"></a>用最小的花费爬楼梯</h2><p>dp[i]表示 从第i个楼梯开始爬的最小花费</p>
+<p>dp[i] &#x3D; min(dp[i-1], dp[i-2]) + cost[i]</p>
+<p>最后取min(dp[-1], dp[-2])</p>
+<h2 id="不同路径"><a href="#不同路径" class="headerlink" title="不同路径"></a>不同路径</h2><p>dp[i][j] 表示到i行j列位置的所有路径和</p>
+<p>dp[0][j]和dp[i][0]都为1</p>
+<p>dp[i][j] &#x3D; dp[i-1][j] + dp[i][j-1]</p>
+<h2 id="不同路径2"><a href="#不同路径2" class="headerlink" title="不同路径2"></a>不同路径2</h2><p>注意初始化的时候有障碍的后面全都赋值为0</p>
+<p>另外注意起点和终点有障碍的情况</p>
+<h2 id="整数拆分"><a href="#整数拆分" class="headerlink" title="整数拆分"></a>整数拆分</h2><p><strong>确定下标意义</strong>：dp[i]：分拆出数字i，可以得到的最大乘积为dp[i]。</p>
+<p><strong>确定递推公式</strong>：</p>
+<p>其实可以从1遍历j，然后有两种渠道得到dp[i].</p>
+<p>一个是j * (i - j) 直接相乘。</p>
+<p>一个是j * dp[i - j]</p>
+<p>可以理解为拆分为两个数和多个数</p>
+<p>dp[i] &#x3D; max({dp[i], (i - j) * j, dp[i - j] * j});</p>
+<p>其中还要比较dp[i]的大小是因为j每次循环中都会给dp[i]赋值 我们要取大的。</p>
+<p><strong>初始化</strong>：dp[0], dp[1]赋值没有意义<br>dp[2] &#x3D; 1</p>
+<p><strong>确认遍历顺序</strong><br>dp[i]可以由dp[i-j]推导出来 所以是从前往后遍历</p>
+<h2 id="不同的二叉搜索树"><a href="#不同的二叉搜索树" class="headerlink" title="不同的二叉搜索树"></a>不同的二叉搜索树</h2><p><a target="_blank" rel="noopener" href="https://programmercarl.com/0096.%E4%B8%8D%E5%90%8C%E7%9A%84%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91.html#%E6%80%9D%E8%B7%AF">不同的二叉搜索树</a></p>
+</p><div class="tip">本文采用CC-BY-SA-3.0协议，转载请注明出处<br>Author: Sweetyxz</div></div><div class="post-footer"><div class="meta"><div class="info"><i class="fa fa-sun-o"></i><span class="date">2021-12-12</span><i class="fa fa-tag"></i><a class="tag" href="/tags/算法/" title="算法">算法 </a><span class="leancloud_visitors"></span><span>About 5320 words, 17 min 44 sec  read</span></div></div></div></div><div class="share"><div class="evernote"><a class="fa fa-bookmark" href="" onclick="javascript:join_favorite()" ref="sidebar"></a></div><div class="weibo"><a class="fa fa-weibo" href="javascript:void((function(s,d,e){try{}catch(e){}var f='http://service.weibo.com/share/share.php?',u=d.location.href,p=['url=',e(u),'&amp;title=',e(d.title),'&amp;appkey=2924220432'].join('');function a(){if(!window.open([f,p].join(''),'mb',['toolbar=0,status=0,resizable=1,width=620,height=450,left=',(s.width-620)/2,',top=',(s.height-450)/2].join('')))u.href=[f,p].join('');};if(/Firefox/.test(navigator.userAgent)){setTimeout(a,0)}else{a()}})(screen,document,encodeURIComponent));"></a></div><div class="twitter"><a class="fa fa-twitter" target="_blank" rel="noopener" href="http://twitter.com/home?status=,http://example.com/2021/12/12/题目记录/,Sweetyxz,【算法】Leetcode题目记录,;"></a></div></div><div class="pagination"><ul class="clearfix"><li class="next pagbuttons"><a class="btn" role="navigation" href="/2021/11/27/%E5%AF%86%E7%A0%81%E5%AD%A6%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/" title="【基础知识】密码学基础知识">Next</a></li></ul></div><script src="/js/visitors.js"></script></div></div></div></div><script src="/js/jquery-migrate-1.2.1.min.js"></script><script src="/js/jquery.appear.js"></script><script src="/js/add-bookmark.js"></script><script>(function(window){var INSIGHT_CONFIG={TRANSLATION:{POSTS:"Posts",PAGES:"Pages",CATEGORIES:"Categories",TAGS:"Tags",UNTITLED:"(Untitled)",},CONTENT_URL:"/content.json",};window.INSIGHT_CONFIG=INSIGHT_CONFIG})(window);</script><script src="/js/insight.js" defer></script><div class="searchbox ins-search"><div class="searchbox-container ins-search-container"><div class="searchbox-input-wrapper"><input class="searchbox-input ins-search-input" type="text" placeholder="Search..."><span class="searchbox-close"><a class="fa fa-times-circle" onclick="closeWindow();"></a></span></div><div class="searchbox-result-wrapper ins-section-wrapper"><div class="ins-section-container"><p>Seraching...</p></div></div></div></div></body></html>
